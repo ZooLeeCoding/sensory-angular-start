@@ -1,5 +1,9 @@
 <p>
   pelda works!
 </p>
-<input [(ngModel)]="peldatext">
-<h4>{{peldatext}}</h4>
+<input type="number" [(ngModel)]="age" placeholder="0">
+<input type="string" [(ngModel)]="username" placeholder="username">
+<input type="string" [(ngModel)]="foglalkozas" placeholder="programmer">
+<button (click)="callPost()">POST</button>
+<button (click)="callGet()">GET</button>
+<h4>{{response}}</h4>

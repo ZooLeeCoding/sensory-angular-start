@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PeldaComponent } from './pelda/pelda.component';
 
+import { NodeConnectService } from './services/node-connect.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,7 @@ import { PeldaComponent } from './pelda/pelda.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [NodeConnectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

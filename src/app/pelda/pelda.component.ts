@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NodeConnectService } from '../services/node-connect.service';
 
 @Component({
   selector: 'app-pelda',
@@ -7,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeldaComponent implements OnInit {
 
-  peldatext: String;
+  age: String;
+  username: String;
+  foglalkozas: String;
 
-  constructor() { 
-    this.peldatext = "Ez egy példa";
+  constructor(private nodeConnectService: NodeConnectService) { 
+  }
+
+  callPost() {
+    this.nodeConnectService.postAbout(this.age, this.username, this.foglalkozas)
+    .then(result => {
+      console.log(result);
+    })
+  }
+
+  callGet() {
+
   }
 
   ngOnInit() {
