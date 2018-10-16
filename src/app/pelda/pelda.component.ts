@@ -12,18 +12,29 @@ export class PeldaComponent implements OnInit {
   username: String;
   foglalkozas: String;
 
+  response: String;
+
   constructor(private nodeConnectService: NodeConnectService) { 
   }
 
   callPost() {
     this.nodeConnectService.postAbout(this.age, this.username, this.foglalkozas)
-    .then(result => {
-      console.log(result);
+    .subscribe(result => {
+      this.response = JSON.parse(result._body).message;
+    }, error => {
+      console.log("hiba tortent");
+      this.response = JSON.parse(error._body).message;
     })
   }
 
   callGet() {
-
+    this.nodeConnectService.getAbout()
+    .subscribe(result => {
+      this.response = JSON.parse(result._body).message;
+    }, error => {
+      console.log("hiba tortent");
+      this.response = JSON.parse(error._body).message;
+    })
   }
 
   ngOnInit() {
